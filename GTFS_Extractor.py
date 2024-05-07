@@ -13,7 +13,7 @@ import streamlit as st
 
 st.header('GTFS Extractor - Germany')
 
-gem_df = pd.read_csv('Data/gem_data.csv', sep = ',')
+gem_df = pd.read_csv('gem_data.csv', sep = ',')
 
 states = sorted(gem_df['state'].unique())
 
@@ -34,7 +34,7 @@ if state_selection != None and city_selection != None:
 
     # print(selection['min_x'].to_list()[0])
 
-        stops_df = pd.read_csv('Data/GTFS/stops.txt', sep = ',')
+        stops_df = pd.read_csv('GTFS/stops.txt', sep = ',')
 
         selection_stops_df = stops_df[(stops_df['stop_lat'] <= max_y) & (stops_df['stop_lat'] >= min_y) & (stops_df['stop_lon'] <= max_x) & (stops_df['stop_lon'] >= min_x)]
 
@@ -42,7 +42,7 @@ if state_selection != None and city_selection != None:
 
         selection_stop_ids = selection_stops_df['stop_id'].unique()
 
-        stop_times_df = pd.read_csv('Data/GTFS/stop_times.txt', sep = ',')
+        stop_times_df = pd.read_csv('GTFS/stop_times.txt', sep = ',')
 
         selection_stop_times_df = stop_times_df[stop_times_df['stop_id'].isin(selection_stop_ids)]
 
