@@ -42,7 +42,7 @@ if state_selection != None and city_selection != None:
 
         selection_stop_ids = selection_stops_df['stop_id'].unique()
 
-        stop_times_df = pd.read_csv('GTFS/stop_times.txt', sep = ',')
+        stop_times_df = pd.read_csv('GTFS/stop_times.txt', sep = ',', dtype = {'stop_id':'str'})
 
         selection_stop_times_df = stop_times_df[stop_times_df['stop_id'].isin(selection_stop_ids)]
 
