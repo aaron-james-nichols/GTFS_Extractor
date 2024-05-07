@@ -36,6 +36,8 @@ if state_selection != None and city_selection != None:
 
         stops_df = pd.read_csv('GTFS/stops.txt', sep = ',', dtype = {'stop_id':'str'})
 
+        print(stops_df)
+
         selection_stops_df = stops_df[(stops_df['stop_lat'] <= max_y) & (stops_df['stop_lat'] >= min_y) & (stops_df['stop_lon'] <= max_x) & (stops_df['stop_lon'] >= min_x)]
 
         # stops_download = selection_stops_df.to_csv('stops_out.txt', index = False)
@@ -43,8 +45,6 @@ if state_selection != None and city_selection != None:
         selection_stop_ids = selection_stops_df['stop_id'].unique()
 
         stop_times_df = pd.read_csv('GTFS/stop_times.txt', sep = ',', dtype = {'stop_id':'str'})
-
-        print(stop_times_df)
 
         selection_stop_times_df = stop_times_df[stop_times_df['stop_id'].isin(selection_stop_ids)]
 
