@@ -44,6 +44,8 @@ if state_selection != None and city_selection != None:
 
         stop_times_df = pd.read_csv('GTFS/stop_times.txt', sep = ',', dtype = {'stop_id':'str'})
 
+        print(stop_times_df)
+
         selection_stop_times_df = stop_times_df[stop_times_df['stop_id'].isin(selection_stop_ids)]
 
         st.download_button('Download Stops', data = selection_stops_df.to_csv(index = False).encode('utf-8'), file_name = 'stops_out.txt')
