@@ -34,7 +34,7 @@ if state_selection != None and city_selection != None:
 
     # print(selection['min_x'].to_list()[0])
 
-        stops_df = pd.read_csv('GTFS/stops.txt', sep = ',')
+        stops_df = pd.read_csv('GTFS/stops.txt', sep = ',', dtype = {'stop_id':'str'})
 
         selection_stops_df = stops_df[(stops_df['stop_lat'] <= max_y) & (stops_df['stop_lat'] >= min_y) & (stops_df['stop_lon'] <= max_x) & (stops_df['stop_lon'] >= min_x)]
 
